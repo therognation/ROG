@@ -1,33 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROG Nation BGMI Tournament</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>ROG Nation BGMI Tournament</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About the Tournament</h2>
-            <p>Join us for the ROG Nation BGMI Tournament, where gamers from all over compete for glory and prizes!</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email us at: <a href="mailto:contact@rog-nation.com">contact@rog-nation.com</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 ROG Nation. All Rights Reserved.</p>
-    </footer>
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ROG Nation BGMI Tournament</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Barlow+Condensed&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style> 
+        body { 
+            background-color: #121212; 
+            color: white; 
+            font-family: 'Barlow Condensed', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        } 
+        h1, h2, h3 { 
+            font-family: 'Anton', sans-serif; 
+        } 
+        /* Navigation styles */ 
+        nav { 
+            background-color: rgba(217, 0, 0, 0.8); 
+            padding: 10px; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+        } 
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            transition: color 0.3s; 
+        } 
+        nav a:hover { 
+            color: #d90000; 
+        } 
+        /* Hero Section */ 
+        .hero { 
+            background: linear-gradient(to right, #d90000, #121212); 
+            padding: 100px 20px; 
+            text-align: center; 
+            animation: fadeIn 1s; 
+        } 
+        @keyframes fadeIn { 
+            from {opacity: 0;} 
+            to {opacity: 1;} 
+        } 
+        /* Tournament Details Card */ 
+        .tournament-card { 
+            background-color: #1e1e1e; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+            margin: 20px; 
+        } 
+        /* Prize Pool Podium */ 
+        .podium { 
+            margin: 20px; 
+            display: flex; 
+            justify-content: space-around; 
+        } 
+        .podium div { 
+            background-color: #d90000; 
+            padding: 20px; 
+            border-radius: 20%; 
+        } 
+        /* Expandable Rulebook */ 
+        .rulebook { 
+            margin: 20px; 
+        }
+        .rulebook h3 { 
+            cursor: pointer; 
+        } 
+        .rulebook ul { 
+            list-style-type: none; 
+            padding-left: 20px; 
+            display: none; 
+        } 
+        /* FAQ and Footer */ 
+        .faq, .footer { 
+            margin: 20px; 
+        } 
+        footer { 
+            text-align: center; 
+            padding: 10px 0; 
+            background-color: #1e1e1e; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <nav> 
+        <a href="#">Home</a> 
+        <a href="#tournament-details">Tournament Details</a> 
+        <a href="#faq">FAQ</a> 
+        <a href="#rules">Rules</a> 
+        <a href="#terms">Terms & Conditions</a> 
+    </nav> 
+    <section class="hero"> 
+        <h1>ROG Nation BGMI Tournament</h1> 
+        <p>Join us for an epic tournament with prizes!</p> 
+    </section> 
+    <section id="tournament-details"> 
+        <div class="tournament-card"> 
+            <h2>Tournament Details</h2> 
+            <p>Bring your A-game and compete for amazing prizes!</p> 
+        </div> 
+        <div class="podium"> 
+            <div>1st Place: $1000</div> 
+            <div>2nd Place: $500</div> 
+            <div>3rd Place: $250</div> 
+        </div> 
+    </section> 
+    <section class="rulebook" id="rules"> 
+        <h2>Rulebook</h2> 
+        <h3>Game Rules:</h3> 
+        <div> 
+            <h3>Expandable Rule</h3> 
+            <ul> 
+                <li>Rule 1: No cheating</li> 
+                <li>Rule 2: Fair play</li> 
+            </ul> 
+        </div> 
+    </section> 
+    <section class="faq" id="faq"> 
+        <h2>FAQ</h2> 
+        <h3>Questions:</h3> 
+        <p>Coming soon!</p> 
+    </section> 
+    <footer class="footer"> 
+        <p>Follow us on social media!</p> 
+        <a href="#">Instagram</a> | 
+        <a href="#">Twitter</a> | 
+        <a href="#">Facebook</a> 
+    </footer> 
+</body> 
 </html>
