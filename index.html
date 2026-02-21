@@ -1,136 +1,502 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>ROG Nation BGMI Tournament</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Barlow+Condensed&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <style> 
-        body { 
-            background-color: #121212; 
-            color: white; 
-            font-family: 'Barlow Condensed', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-        } 
-        h1, h2, h3 { 
-            font-family: 'Anton', sans-serif; 
-        } 
-        /* Navigation styles */ 
-        nav { 
-            background-color: rgba(217, 0, 0, 0.8); 
-            padding: 10px; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-        } 
-        nav a { 
-            color: white; 
-            text-decoration: none; 
-            margin: 0 15px; 
-            transition: color 0.3s; 
-        } 
-        nav a:hover { 
-            color: #d90000; 
-        } 
-        /* Hero Section */ 
-        .hero { 
-            background: linear-gradient(to right, #d90000, #121212); 
-            padding: 100px 20px; 
-            text-align: center; 
-            animation: fadeIn 1s; 
-        } 
-        @keyframes fadeIn { 
-            from {opacity: 0;} 
-            to {opacity: 1;} 
-        } 
-        /* Tournament Details Card */ 
-        .tournament-card { 
-            background-color: #1e1e1e; 
-            padding: 20px; 
-            border-radius: 10px; 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-            margin: 20px; 
-        } 
-        /* Prize Pool Podium */ 
-        .podium { 
-            margin: 20px; 
-            display: flex; 
-            justify-content: space-around; 
-        } 
-        .podium div { 
-            background-color: #d90000; 
-            padding: 20px; 
-            border-radius: 20%; 
-        } 
-        /* Expandable Rulebook */ 
-        .rulebook { 
-            margin: 20px; 
-        }
-        .rulebook h3 { 
-            cursor: pointer; 
-        } 
-        .rulebook ul { 
-            list-style-type: none; 
-            padding-left: 20px; 
-            display: none; 
-        } 
-        /* FAQ and Footer */ 
-        .faq, .footer { 
-            margin: 20px; 
-        } 
-        footer { 
-            text-align: center; 
-            padding: 10px 0; 
-            background-color: #1e1e1e; 
-        } 
-    </style> 
-</head> 
-<body> 
-    <nav> 
-        <a href="#">Home</a> 
-        <a href="#tournament-details">Tournament Details</a> 
-        <a href="#faq">FAQ</a> 
-        <a href="#rules">Rules</a> 
-        <a href="#terms">Terms & Conditions</a> 
-    </nav> 
-    <section class="hero"> 
-        <h1>ROG Nation BGMI Tournament</h1> 
-        <p>Join us for an epic tournament with prizes!</p> 
-    </section> 
-    <section id="tournament-details"> 
-        <div class="tournament-card"> 
-            <h2>Tournament Details</h2> 
-            <p>Bring your A-game and compete for amazing prizes!</p> 
-        </div> 
-        <div class="podium"> 
-            <div>1st Place: $1000</div> 
-            <div>2nd Place: $500</div> 
-            <div>3rd Place: $250</div> 
-        </div> 
-    </section> 
-    <section class="rulebook" id="rules"> 
-        <h2>Rulebook</h2> 
-        <h3>Game Rules:</h3> 
-        <div> 
-            <h3>Expandable Rule</h3> 
-            <ul> 
-                <li>Rule 1: No cheating</li> 
-                <li>Rule 2: Fair play</li> 
-            </ul> 
-        </div> 
-    </section> 
-    <section class="faq" id="faq"> 
-        <h2>FAQ</h2> 
-        <h3>Questions:</h3> 
-        <p>Coming soon!</p> 
-    </section> 
-    <footer class="footer"> 
-        <p>Follow us on social media!</p> 
-        <a href="#">Instagram</a> | 
-        <a href="#">Twitter</a> | 
-        <a href="#">Facebook</a> 
-    </footer> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROG NATION – Rise Of Gamers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --r:#d90000;--rb:#ff2020;--rg:rgba(217,0,0,.55);--rd:rgba(217,0,0,.12);
+  --bg:#060608;--bg2:#0b0b0f;--bg3:#101014;--sur:#14141a;
+  --bdr:rgba(217,0,0,.22);--tx:#dde0e8;--txd:#636878;
+  --F1:'Bebas Neue',sans-serif;--F2:'Barlow Condensed',sans-serif;
+  --FM:'JetBrains Mono',monospace;--FA:'Anton',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--F2);font-size:17px;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--r)}
+
+
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;background:rgba(6,6,8,.92);border-bottom:1px solid var(--bdr);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+.nav-logo{font-family:var(--FA);font-size:1.6rem;letter-spacing:4px;color:var(--rb);text-shadow:0 0 14px var(--rg)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--FM);font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--txd);transition:color .2s}
+.nav-links a:hover{color:var(--rb)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(217,0,0,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(217,0,0,.07) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,#000 30%,transparent 100%)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:300px;background:linear-gradient(to top,var(--bg),transparent)}
+@keyframes scan{from{transform:translateY(-100%)}to{transform:translateY(200vh)}}
+.scanline{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,rgba(217,0,0,.35),transparent);animation:scan 8s linear infinite;z-index:1;pointer-events:none}
+.orb{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(217,0,0,.13) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:860px}
+.hero-chip{display:inline-flex;align-items:center;gap:10px;font-family:var(--FM);font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--r);border:1px solid rgba(217,0,0,.3);background:rgba(217,0,0,.07);padding:8px 20px;margin-bottom:28px}
+.hero-chip::before,.hero-chip::after{content:'■';font-size:.4rem}
+@keyframes flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.6}95%{opacity:1}97%{opacity:.7}98%{opacity:1}}
+.hero-h1{font-family:var(--FA);font-size:clamp(4.5rem,16vw,11rem);line-height:.85;letter-spacing:4px;color:#fff;text-transform:uppercase;animation:flicker 6s infinite;position:relative}
+.hero-h1 .r{color:var(--rb);display:block;text-shadow:0 0 40px rgba(217,0,0,.7),0 0 80px rgba(217,0,0,.35),4px 4px 0 rgba(100,0,0,.6)}
+.hero-h1 .w{display:block;text-shadow:2px 2px 0 rgba(217,0,0,.4)}
+.hero-sub{font-family:var(--F1);font-size:clamp(1rem,3vw,1.6rem);letter-spacing:12px;color:var(--txd);text-transform:uppercase;margin:20px 0 16px}
+.hero-desc{font-family:var(--F2);font-size:1.15rem;font-weight:600;color:var(--txd);max-width:480px;margin:0 auto 44px;line-height:1.7}
+
+/* BUTTONS */
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{font-family:var(--FA);font-size:1rem;letter-spacing:4px;text-transform:uppercase;padding:15px 36px;display:inline-flex;align-items:center;gap:10px;transition:all .25s cubic-bezier(.2,0,.1,1);position:relative;overflow:hidden;border:none;outline:none;cursor:pointer}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.08),transparent 70%);transform:translateX(-100%);transition:transform .4s}
+.btn:hover::after{transform:translateX(100%)}
+.btn-red{background:var(--r);color:#fff;box-shadow:0 0 22px var(--rg),inset 0 1px 0 rgba(255,80,80,.3)}
+.btn-red:hover{background:var(--rb);box-shadow:0 0 50px var(--rg),0 0 100px rgba(217,0,0,.3),inset 0 1px 0 rgba(255,120,120,.4);transform:translateY(-3px) scale(1.02);letter-spacing:6px}
+.btn-ghost{background:transparent;color:var(--tx);border:1px solid rgba(255,255,255,.12)}
+.btn-ghost:hover{color:#fff;border-color:var(--r);box-shadow:0 0 28px var(--rg);transform:translateY(-3px)}
+.btn-ghost-red{background:transparent;color:var(--rb);border:1px solid rgba(217,0,0,.4)}
+.btn-ghost-red:hover{background:rgba(217,0,0,.08);border-color:var(--rb);box-shadow:0 0 32px var(--rg);transform:translateY(-3px);color:#fff}
+
+/* SECTIONS */
+.wrap{max-width:1020px;margin:0 auto;padding:80px 28px}
+.s-tag{display:flex;align-items:center;gap:12px;font-family:var(--FM);font-size:.62rem;letter-spacing:5px;color:var(--r);text-transform:uppercase;margin-bottom:14px}
+.s-tag::before{content:'//'}
+.s-title{font-family:var(--FA);font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:3px;color:#fff;margin-bottom:40px;line-height:.95}
+.s-title em{color:var(--rb);font-style:normal;text-shadow:0 0 25px rgba(217,0,0,.5)}
+hr.div{border:none;height:1px;background:linear-gradient(to right,transparent,var(--bdr),transparent);margin:0}
+
+/* ABOUT */
+.about-box{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bdr);border:1px solid var(--bdr)}
+.about-text{background:var(--bg3);padding:44px 48px;border-left:3px solid var(--r)}
+.about-text p{font-size:1.1rem;font-weight:600;color:var(--txd);line-height:1.8}
+.about-text p strong{color:var(--rb)}
+.about-stats{background:var(--sur);display:flex;flex-direction:column;justify-content:space-between}
+.stat{padding:28px 36px;border-bottom:1px solid var(--bdr);transition:background .2s}
+.stat:last-child{border-bottom:none}
+.stat:hover{background:rgba(217,0,0,.05)}
+.stat-n{font-family:var(--FA);font-size:2.8rem;color:var(--rb);text-shadow:0 0 20px var(--rg);letter-spacing:2px;display:block;line-height:1}
+.stat-l{font-family:var(--FM);font-size:.62rem;letter-spacing:3px;color:var(--txd);text-transform:uppercase;margin-top:6px}
+
+/* TOURNAMENT */
+.t-header{background:linear-gradient(120deg,#1c0000 0%,#0e0008 40%,var(--sur) 100%);border:1px solid var(--r);padding:36px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:4px;box-shadow:0 0 60px rgba(217,0,0,.2),inset 0 0 80px rgba(217,0,0,.07);position:relative;overflow:hidden}
+.t-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--rb),transparent)}
+.t-header::after{content:'BGMI CUP';font-family:var(--FA);font-size:7rem;color:rgba(217,0,0,.06);position:absolute;right:-10px;bottom:-16px;line-height:1;pointer-events:none;letter-spacing:4px;white-space:nowrap}
+.t-name{font-family:var(--FA);font-size:2.4rem;letter-spacing:6px;color:#fff;text-shadow:2px 2px 0 rgba(217,0,0,.4),0 0 40px rgba(217,0,0,.2)}
+@keyframes pulse-b{0%,100%{box-shadow:0 0 20px var(--rg)}50%{box-shadow:0 0 40px var(--rg),0 0 80px rgba(217,0,0,.25)}}
+@keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.badge{font-family:var(--FM);font-size:.72rem;letter-spacing:3px;padding:12px 28px;background:var(--r);color:#fff;text-transform:uppercase;box-shadow:0 0 20px var(--rg);animation:pulse-b 2s ease-in-out infinite;display:flex;align-items:center;gap:10px}
+.badge::before{content:'';width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;animation:dot-pulse 1.2s ease-in-out infinite}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(217,0,0,.18);border:1px solid rgba(217,0,0,.35);border-top:none}
+.c-card{background:var(--sur);padding:36px 20px;text-align:center;position:relative;overflow:hidden;transition:background .25s,box-shadow .25s}
+.c-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--rb),transparent);opacity:0;transition:opacity .3s}
+.c-card:hover::after{opacity:1}
+.c-card:hover{background:linear-gradient(180deg,rgba(217,0,0,.12) 0%,rgba(217,0,0,.04) 100%);box-shadow:inset 0 0 50px rgba(217,0,0,.1)}
+.c-corner{position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 28px 28px 0;border-color:transparent rgba(217,0,0,.25) transparent transparent;transition:border-color .3s}
+.c-card:hover .c-corner{border-color:transparent rgba(217,0,0,.6) transparent transparent}
+.c-wide{grid-column:span 2}
+.c-icon{font-size:2.2rem;margin-bottom:14px;display:block;filter:drop-shadow(0 0 8px rgba(217,0,0,.4))}
+.c-lbl{font-family:var(--FM);font-size:.58rem;letter-spacing:4px;color:var(--txd);text-transform:uppercase;margin-bottom:10px}
+.c-val{font-family:var(--FA);font-size:2rem;letter-spacing:3px;color:var(--rb);text-shadow:0 0 20px rgba(217,0,0,.6),0 0 50px rgba(217,0,0,.2)}
+
+/* HYPE ENTRY FEE CARD */
+@keyframes hype-pulse{0%,100%{box-shadow:inset 0 0 40px rgba(217,0,0,.15),0 0 30px rgba(217,0,0,.2)}50%{box-shadow:inset 0 0 80px rgba(217,0,0,.3),0 0 60px rgba(217,0,0,.4)}}
+@keyframes hype-border{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes tag-flash{0%,100%{opacity:1;letter-spacing:2px}50%{opacity:.7;letter-spacing:3px}}
+.c-hype{background:linear-gradient(160deg,#1a0000 0%,#0d0005 60%,var(--sur) 100%) !important;animation:hype-pulse 2.5s ease-in-out infinite;border:1px solid rgba(217,0,0,.5) !important;position:relative}
+.c-hype::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(217,0,0,.08),transparent 60%);pointer-events:none}
+.hype-glow{position:absolute;inset:0;border:1px solid var(--rb);opacity:.4;animation:hype-border 2s ease-in-out infinite;pointer-events:none}
+.c-val-hype{font-size:2.8rem !important;color:#fff !important;text-shadow:0 0 30px var(--rg),0 0 60px rgba(217,0,0,.5),0 0 2px #fff !important}
+.hype-line{font-family:var(--FM);font-size:.78rem;letter-spacing:2px;margin-top:6px;color:rgba(255,255,255,.5)}
+.hype-line span{color:var(--rb);font-weight:700;font-size:.9rem}
+.hype-tag{font-family:var(--FM);font-size:.55rem;letter-spacing:2px;color:var(--rb);text-transform:uppercase;margin-top:10px;padding:5px 10px;border:1px solid rgba(217,0,0,.4);background:rgba(217,0,0,.08);line-height:1.4;animation:tag-flash 2s ease-in-out infinite}
+
+/* PRIZES */
+.prize-bg{background:var(--bg2)}
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:2px;align-items:end;background:var(--bdr);border:1px solid var(--bdr);margin-bottom:16px}
+.p-card{background:var(--sur);padding:36px 24px;text-align:center;position:relative;overflow:hidden;transition:background .3s}
+.p-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--bdr)}
+.p-card.gold{background:linear-gradient(180deg,rgba(217,0,0,.1) 0%,var(--sur) 60%)}
+.p-card.gold::before{background:linear-gradient(90deg,transparent,var(--rb),transparent)}
+.p-card:hover{background:rgba(217,0,0,.06)}
+.p-rank{font-family:var(--FM);font-size:.6rem;letter-spacing:4px;color:var(--txd);text-transform:uppercase;margin-bottom:14px}
+.p-icon{font-size:2.8rem;margin-bottom:14px;display:block}
+.p-amt{font-family:var(--FA);font-size:2.6rem;letter-spacing:3px;color:var(--rb);text-shadow:0 0 22px var(--rg)}
+.p-card.gold .p-amt{font-size:3.4rem}
+.prize-note{font-family:var(--FM);font-size:.72rem;letter-spacing:1px;color:var(--txd);padding:16px 24px;border:1px solid var(--bdr);background:var(--sur);display:flex;align-items:center;gap:10px}
+.prize-note::before{content:'⚠';color:var(--r);flex-shrink:0}
+
+/* DETAILS */
+details{border:1px solid var(--bdr);margin-bottom:6px;background:var(--sur);transition:border-color .2s}
+details[open]{border-color:var(--r)}
+summary{padding:18px 24px;font-family:var(--F1);font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;color:var(--tx);cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;user-select:none;transition:color .15s,background .15s}
+summary:hover{color:var(--rb);background:rgba(217,0,0,.04)}
+summary::before{content:'▶';color:var(--r);font-size:.7rem;transition:transform .2s;flex-shrink:0}
+details[open] summary::before{transform:rotate(90deg)}
+summary::-webkit-details-marker{display:none}
+.rb{padding:4px 24px 24px 52px;border-top:1px solid rgba(217,0,0,.1)}
+.rl{list-style:none}
+.rl li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:1rem;font-weight:600;color:var(--txd);line-height:1.5}
+.rl li:last-child{border-bottom:none}
+.rl li::before{content:'─';color:var(--r);flex-shrink:0;margin-top:2px}
+.warn-strip{margin-top:14px;padding:12px 16px;background:rgba(217,0,0,.08);border-left:3px solid var(--r);font-family:var(--FM);font-size:.78rem;color:var(--rb);letter-spacing:.5px}
+
+/* TOS */
+.tos-inner{padding:32px 36px;background:var(--bg3);border-top:1px solid rgba(217,0,0,.08)}
+.tos-inner h3{font-family:var(--F1);font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;color:var(--rb);margin:26px 0 10px}
+.tos-inner h3:first-child{margin-top:0}
+.tos-inner p{font-size:.95rem;font-weight:600;color:var(--txd);line-height:1.75}
+
+/* FAQ */
+.faq-card{background:var(--sur);border:1px solid var(--bdr);margin-bottom:6px;overflow:hidden;transition:border-color .2s}
+.faq-card:hover{border-color:rgba(217,0,0,.35)}
+.faq-q{padding:18px 24px;font-family:var(--F1);font-size:1.1rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-q::after{content:'Q';font-family:var(--FA);font-size:1.6rem;color:rgba(217,0,0,.2);flex-shrink:0}
+.faq-a{padding:14px 24px 20px;font-size:1rem;font-weight:600;color:var(--txd);border-top:1px solid rgba(217,0,0,.08);display:flex;gap:14px;align-items:flex-start}
+.faq-a::before{content:'A';font-family:var(--FA);font-size:1.3rem;color:var(--r);flex-shrink:0;line-height:1.3}
+
+/* FOOTER */
+footer{background:var(--bg3);border-top:1px solid var(--bdr);padding:60px 28px 36px;text-align:center;position:relative;overflow:hidden}
+footer::before{content:'ROG';font-family:var(--FA);font-size:22rem;color:rgba(217,0,0,.025);position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);pointer-events:none;letter-spacing:-10px;line-height:1}
+.ft-logo{font-family:var(--FA);font-size:3rem;letter-spacing:8px;color:var(--rb);text-shadow:0 0 30px var(--rg);margin-bottom:6px;position:relative}
+.ft-tag{font-family:var(--FM);font-size:.65rem;letter-spacing:6px;color:var(--txd);text-transform:uppercase;margin-bottom:36px}
+.ft-line{width:80px;height:2px;background:linear-gradient(to right,transparent,var(--r),transparent);margin:0 auto 32px}
+.ft-links{display:flex;flex-wrap:wrap;gap:20px 32px;justify-content:center;margin-bottom:36px}
+.ft-links a{font-family:var(--FM);font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--txd);transition:color .2s;position:relative}
+.ft-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--r);transform:scaleX(0);transition:transform .2s}
+.ft-links a:hover{color:var(--rb)}
+.ft-links a:hover::after{transform:scaleX(1)}
+.ft-copy{font-family:var(--FM);font-size:.65rem;letter-spacing:2px;color:rgba(255,255,255,.15);position:relative}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .modal-head,.modal-body{padding-left:24px;padding-right:24px}
+  .modal-title-big{font-size:2.4rem}
+  .about-box{grid-template-columns:1fr}
+  .about-text{padding:32px 28px}
+  .about-stats{flex-direction:row;flex-wrap:wrap}
+  .stat{flex:1;min-width:120px}
+  .podium{grid-template-columns:1fr;align-items:unset}
+  .p-card.gold{order:-1}
+  .wrap{padding:60px 20px}
+  .t-header{flex-direction:column;align-items:flex-start;padding:24px 28px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .c-wide{grid-column:span 1}
+  .tos-inner{padding:24px 20px}
+  footer::before{font-size:12rem}
+}
+@media(max-width:480px){
+  .btns{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center}
+  .cards{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">ROG NATION</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#tournament">Tournament</a></li>
+    <li><a href="#prizes">Prizes</a></li>
+    <li><a href="#rules">Rulebook</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="position:relative">
+  <div class="hero">
+    <div class="scanline"></div>
+    <div class="orb"></div>
+    <div class="hero-content">
+      <div class="hero-chip">■ BGMI TOURNAMENT ■</div>
+      <h1 class="hero-h1">
+        <span class="r">RISE</span>
+        <span class="w">OF GAMERS</span>
+      </h1>
+      <div class="hero-sub">ROG&nbsp;&nbsp;NATION</div>
+      <p class="hero-desc">Hosting BGMI tournaments, scrims and competitive esports events across India.</p>
+      <div class="btns">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczpgUEP5XSNvsmcwknDMEbxlSbDaWrAxrbt8jbJqSQWKX4wQ/viewform" target="_blank" class="btn btn-red">⚡ JOIN TOURNAMENT</a>
+        <a href="https://www.instagram.com/theriseofgamers/" target="_blank" class="btn btn-ghost">📷 FOLLOW INSTAGRAM</a>
+        <a href="https://www.instagram.com/theriseofgamers/" target="_blank" class="btn btn-ghost-red">💬 MESSAGE US</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- WHO WE ARE -->
+<div class="wrap" id="about">
+  <div class="s-tag">Identity</div>
+  <div class="s-title">WHO WE <em>ARE</em></div>
+  <div class="about-box">
+    <div class="about-text">
+      <p><strong>ROG Nation</strong> is a competitive esports organiser built for the grind. We specialise in <strong>BGMI tournaments</strong>, daily scrims, and community events — creating a real arena where Indian mobile players can prove their skill, compete hard, and earn what they deserve.<br><br>Our mission is simple: grow the Indian mobile esports scene, one clutch at a time.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><span class="stat-n">25+</span><div class="stat-l">Teams Per Cup</div></div>
+      <div class="stat"><span class="stat-n">₹500+</span><div class="stat-l">Prize Pool</div></div>
+      <div class="stat"><span class="stat-n">MOBILE</span><div class="stat-l">Platform Only</div></div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- TOURNAMENT -->
+<div class="wrap" id="tournament">
+  <div class="s-tag">Current Event</div>
+  <div class="s-title">TOURNAMENT <em>DETAILS</em></div>
+  <div class="t-header">
+    <div class="t-name">ROG NATION BGMI CUP</div>
+    <div class="badge">🔴 REGISTRATIONS OPEN</div>
+  </div>
+  <div class="cards">
+    <div class="c-card c-featured">
+      <div class="c-corner"></div>
+      <span class="c-icon">🎮</span>
+      <div class="c-lbl">Game Mode</div>
+      <div class="c-val">Squad TPP</div>
+    </div>
+    <div class="c-card c-featured c-hype">
+      <div class="c-corner"></div>
+      <div class="hype-glow"></div>
+      <span class="c-icon">🔥</span>
+      <div class="c-lbl">Entry Fee / Team</div>
+      <div class="c-val c-val-hype">₹40</div>
+      <div class="hype-line">= <span>₹10</span> per player</div>
+      <div class="hype-tag">YOUR WAY INTO OFFICIAL ESPORTS</div>
+    </div>
+    <div class="c-card c-featured">
+      <div class="c-corner"></div>
+      <span class="c-icon">👥</span>
+      <div class="c-lbl">Team Size</div>
+      <div class="c-val">4 Players</div>
+    </div>
+    <div class="c-card c-featured">
+      <div class="c-corner"></div>
+      <span class="c-icon">🛡️</span>
+      <div class="c-lbl">Min Teams</div>
+      <div class="c-val">25 Squads</div>
+    </div>
+    <div class="c-card c-wide">
+      <div class="c-corner"></div>
+      <span class="c-icon">🗺️</span>
+      <div class="c-lbl">Maps</div>
+      <div class="c-val" style="font-size:1.2rem;letter-spacing:2px">Erangel · Miramar · Rondo</div>
+    </div>
+    <div class="c-card c-wide">
+      <div class="c-corner"></div>
+      <span class="c-icon">📱</span>
+      <div class="c-lbl">Platform</div>
+      <div class="c-val">Mobile Only</div>
+    </div>
+  </div>
+  <div style="margin-top:32px;text-align:center">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczpgUEP5XSNvsmcwknDMEbxlSbDaWrAxrbt8jbJqSQWKX4wQ/viewform" target="_blank" class="btn btn-red">⚡ REGISTER YOUR TEAM NOW</a>
+  </div>
+</div>
+
+<!-- PRIZES -->
+<div class="prize-bg">
+  <div class="wrap" id="prizes">
+    <div class="s-tag">Rewards</div>
+    <div class="s-title">PRIZE <em>POOL</em></div>
+    <div class="podium">
+      <div class="p-card">
+        <div class="p-rank">// 2nd Place</div>
+        <span class="p-icon">🥈</span>
+        <div class="p-amt">₹160</div>
+      </div>
+      <div class="p-card gold">
+        <div class="p-rank">// 1st Place</div>
+        <span class="p-icon">🏆</span>
+        <div class="p-amt">₹300</div>
+      </div>
+      <div class="p-card">
+        <div class="p-rank">// 3rd Place</div>
+        <span class="p-icon">🥉</span>
+        <div class="p-amt">₹80</div>
+      </div>
+    </div>
+    <div class="prize-note">Prize pool may be adjusted if minimum team count is not reached.</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- RULEBOOK -->
+<div class="wrap" id="rules">
+  <div class="s-tag">Official Rules</div>
+  <div class="s-title">FULL <em>RULEBOOK</em></div>
+
+  <details><summary>General Rules</summary><div class="rb"><ul class="rl">
+    <li>Tournament is exclusively for mobile BGMI players — no PC or emulator</li>
+    <li>Unfair tools of any kind are strictly not allowed</li>
+    <li>Each team: 4 main players + 1 optional substitute</li>
+    <li>Only registered players may compete in matches</li>
+    <li>Team names must be clean, appropriate and non-offensive</li>
+    <li>All players must follow admin instructions at all times</li>
+  </ul></div></details>
+
+  <details><summary>Registration Rules</summary><div class="rb"><ul class="rl">
+    <li>Only the In-Game Leader (IGL) fills the registration form</li>
+    <li>One form submission per team — duplicates disqualify both</li>
+    <li>Correct BGMI IDs are mandatory for all team members</li>
+    <li>Fake or incorrect IDs = immediate disqualification, no refund</li>
+    <li>No player changes permitted after the match has started</li>
+  </ul></div></details>
+
+  <details><summary>Lobby &amp; Match Rules</summary><div class="rb"><ul class="rl">
+    <li>Room ID and password shared 10 minutes before match start</li>
+    <li>All players must join the lobby before designated time</li>
+    <li>Late entries are automatically disqualified — no exceptions</li>
+    <li>Missing players: team must play with remaining members</li>
+    <li>Matches start on schedule — zero delays</li>
+  </ul></div></details>
+
+  <details><summary>Game Settings</summary><div class="rb"><ul class="rl">
+    <li>Mode: Squad TPP (Third Person Perspective)</li>
+    <li>Maps: Erangel / Miramar / Rondo (announced per match)</li>
+    <li>All default BGMI match settings apply</li>
+  </ul></div></details>
+
+  <details><summary>Fair Play Rules</summary><div class="rb"><ul class="rl">
+    <li>Hacking or cheating software of any kind — zero tolerance</li>
+    <li>Teaming with other squads is strictly prohibited</li>
+    <li>Bug exploitation or glitch abuse not allowed</li>
+    <li>Account sharing forbidden — use your registered account only</li>
+  </ul><div class="warn-strip">⚠ PUNISHMENT: Instant disqualification + permanent ban from all ROG Nation events.</div></div></details>
+
+  <details><summary>Conduct Rules</summary><div class="rb"><ul class="rl">
+    <li>Respect all admins, organisers and fellow players</li>
+    <li>No verbal abuse, toxicity or harassment — in or out of lobby</li>
+    <li>No arguments inside the match lobby or group</li>
+    <li>Unsportsmanlike behaviour results in disqualification</li>
+  </ul></div></details>
+
+  <details><summary>Disconnection Rules</summary><div class="rb"><ul class="rl">
+    <li>No match restart granted for disconnection under any circumstance</li>
+    <li>Network stability is entirely the player's responsibility</li>
+    <li>Disconnected players may rejoin if lobby window is still open</li>
+  </ul></div></details>
+
+  <details><summary>Results &amp; Prizes</summary><div class="rb"><ul class="rl">
+    <li>Results announced only after full admin verification</li>
+    <li>POV recordings and screenshots may be requested as proof</li>
+    <li>Prize distributed after results are officially finalised</li>
+    <li>Prize pool may be adjusted based on final team count</li>
+  </ul></div></details>
+
+  <details><summary>Special Rules</summary><div class="rb"><ul class="rl">
+    <li>At least one player per team must record POV footage throughout</li>
+    <li>Stream sniping is strictly prohibited</li>
+    <li>Glitch abuse will result in instant disqualification</li>
+    <li>Custom formats (pistol / sniper / no-grenade) may be applied as announced</li>
+  </ul></div></details>
+
+  <details><summary>Admin Rights</summary><div class="rb"><ul class="rl">
+    <li>All admin decisions are final — no appeals, no exceptions</li>
+    <li>Rules may be modified or updated at admin discretion</li>
+    <li>All participants must comply with any admin instruction immediately</li>
+  </ul></div></details>
+
+  <details><summary>Refund Policy</summary><div class="rb"><ul class="rl">
+    <li>Entry fees are 100% non-refundable in all circumstances</li>
+    <li>Refund only issued if ROG Nation cancels the full tournament</li>
+    <li>Disqualified teams receive no refund whatsoever</li>
+  </ul></div></details>
+
+  <details><summary>Final Agreement</summary><div class="rb"><ul class="rl">
+    <li>By registering, you accept every rule listed in this rulebook</li>
+    <li>Claiming ignorance of rules is not a valid defence</li>
+    <li>ROG Nation reserves the right to take any action deemed necessary</li>
+  </ul></div></details>
+</div>
+
+<hr class="div">
+
+<!-- TERMS -->
+<div class="wrap" id="tos">
+  <div class="s-tag">Legal</div>
+  <div class="s-title">TERMS &amp; <em>CONDITIONS</em></div>
+  <details><summary>View Full Terms &amp; Conditions</summary>
+    <div class="tos-inner">
+      <h3>1. Eligibility</h3>
+      <p>This tournament is open to all mobile BGMI players in India. Players must be 13 years or older. Emulator users and players with active game bans are ineligible.</p>
+      <h3>2. Registration Accuracy</h3>
+      <p>All information submitted during registration must be accurate and truthful. False registration results in immediate disqualification without refund.</p>
+      <h3>3. Payment &amp; Confirmation</h3>
+      <p>Entry fee of ₹40 per team must be paid before registration is confirmed. Entry fee is strictly non-refundable. Participation confirmed only after payment verification.</p>
+      <h3>4. Tournament Conduct</h3>
+      <p>All participants must maintain respectful and sportsmanlike behaviour. ROG Nation has a zero-tolerance policy for hacking, teaming, account sharing or cheating. Violations result in disqualification and a permanent ban.</p>
+      <h3>5. Admin Authority</h3>
+      <p>All decisions made by ROG Nation admins are final and binding. ROG Nation reserves the right to modify rules, reschedule or cancel the event without prior notice.</p>
+      <h3>6. Liability Disclaimer</h3>
+      <p>ROG Nation is not responsible for technical issues on the participant's end including disconnection, device failure or game crashes.</p>
+      <h3>7. Prize Distribution</h3>
+      <p>Prizes distributed via UPI after result verification. ROG Nation may withhold prizes pending any rule violation investigation. Prize amounts subject to change based on team count.</p>
+      <h3>8. Acceptance of Rules</h3>
+      <p>By registering and participating, all participants acknowledge they have read, understood and agree to abide by all rules set forth by ROG Nation. Participation constitutes full acceptance.</p>
+    </div>
+  </details>
+</div>
+
+<hr class="div">
+
+<!-- FAQ -->
+<div class="wrap" id="faq">
+  <div class="s-tag">Help</div>
+  <div class="s-title">FREQUENTLY ASKED <em>QUESTIONS</em></div>
+
+  <div class="faq-card">
+    <div class="faq-q">How do I register for the tournament?</div>
+    <div class="faq-a">Click "JOIN TOURNAMENT" and fill the official Google Form. Only the IGL submits — include all team members' BGMI IDs accurately.</div>
+  </div>
+  <div class="faq-card">
+    <div class="faq-q">When will the Room ID be shared?</div>
+    <div class="faq-a">Room ID and password are shared exactly 10 minutes before scheduled match time via our official channels.</div>
+  </div>
+  <div class="faq-card">
+    <div class="faq-q">Can we change players after registering?</div>
+    <div class="faq-a">Player changes are only permitted before the match starts. Once a match begins, no substitutions are allowed.</div>
+  </div>
+  <div class="faq-card">
+    <div class="faq-q">Can we get a refund?</div>
+    <div class="faq-a">Entry fees are non-refundable. A refund is issued only if ROG Nation cancels the entire tournament.</div>
+  </div>
+  <div class="faq-card">
+    <div class="faq-q">What happens if we are late to the lobby?</div>
+    <div class="faq-a">Late entry is not permitted. Teams failing to join on time are automatically disqualified from that match.</div>
+  </div>
+  <div class="faq-card">
+    <div class="faq-q">What devices are allowed?</div>
+    <div class="faq-a">Mobile only — Android and iOS. Emulators, keyboards, mice or any external peripherals are strictly prohibited.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">ROG NATION</div>
+  <div class="ft-tag">Rise Of Gamers</div>
+  <div class="ft-line"></div>
+  <div class="ft-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#tournament">Tournament</a>
+    <a href="#prizes">Prizes</a>
+    <a href="#rules">Rulebook</a>
+    <a href="#tos">Terms</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://www.instagram.com/theriseofgamers/" target="_blank">Instagram ↗</a>
+  </div>
+  <div class="ft-copy">© 2026 ROG NATION – Rise Of Gamers. All Rights Reserved.</div>
+</footer>
+
+</body>
 </html>
